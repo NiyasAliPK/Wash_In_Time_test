@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "399955551787",
+    "project_id": "wash-in-time-4258b",
+    "storage_bucket": "wash-in-time-4258b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:399955551787:android:ed3e024a56b348d85f2c6e",
+        "android_client_info": {
+          "package_name": "com.wit.wash_in_time"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "399955551787-ga3sjfn6f2g8ab7cb1d2qehd3ir9g3jt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wit.wash_in_time",
+            "certificate_hash": "cdeaa0db0154db819a755d9102464822723ade41"
+          }
+        },
+        {
+          "client_id": "399955551787-164h6ff8qm2ipiupcjjn8sjan4ctlhhb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ9LXo47Ln8fBLZlFJIe6l0cAWXj0pnPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "399955551787-164h6ff8qm2ipiupcjjn8sjan4ctlhhb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
