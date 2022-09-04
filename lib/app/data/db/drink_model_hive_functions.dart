@@ -20,8 +20,15 @@ class DrinkHiveModelController extends GetxController {
 
   addDrinksToHive(HiveDrinkModel value) async {
     final hiveDb = await Hive.openBox<HiveDrinkModel>('drink_db');
+    for (var element in hiveDb.values) {
+      if (element.drinkName.toString().toLowerCase() ==
+          value.drinkName.toString().toLowerCase()) {
+        return;
+      }
+    }
     await hiveDb.add(value);
     await getAllDrinksFromHive();
     update();
+    // await hiveDb.clear();
   }
 }

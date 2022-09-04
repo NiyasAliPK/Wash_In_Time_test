@@ -21,6 +21,7 @@ class LocalDbView extends StatelessWidget {
                 ? Text('Nothing fetched from the API yet...')
                 : Expanded(
                     child: Container(
+                    //  margin: EdgeInsets.only(top: 20),
                     color: Color.fromARGB(255, 216, 216, 216),
                     child: Column(children: [
                       Text("Name :${_userHiveController.user.first.name}"),

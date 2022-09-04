@@ -19,7 +19,9 @@ class LoginController extends GetxController {
         content: CircularProgressIndicator(), title: 'Please wait...');
     try {
       await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
+          .signInWithEmailAndPassword(email: email, password: password)
+          .whenComplete(() => Get.back());
+
       await storeDataToGetStorage(true);
     } on FirebaseAuthException catch (e) {
       print(e.toString());

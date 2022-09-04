@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:wash_in_time/app/data/models/medicine_model.dart';
 import 'package:wash_in_time/app/modules/login/controllers/login_controller.dart';
 
 import '../controllers/home_controller.dart';
@@ -39,17 +38,15 @@ class HomeView extends GetView<HomeController> {
               GetBuilder<HomeController>(builder: (_) {
                 return homeController.greetings();
               }),
-              TextButton(
-                  onPressed: () async {
-                    await homeController.getdataFromApi();
-                  },
-                  child: Text('Get data')),
-              FutureBuilder<MedicineModel>(
+              SizedBox(
+                height: 20,
+              ),
+              FutureBuilder<dynamic>(
                 future: homeController.getdataFromApi(),
                 initialData: homeController.data,
                 builder: (BuildContext context, AsyncSnapshot snapshot) {
                   return homeController.data == null
-                      ? Text('Loading..')
+                      ? Center(child: Text('Loading..'))
                       : Container(
                           padding: EdgeInsets.only(top: 20),
                           child: Column(

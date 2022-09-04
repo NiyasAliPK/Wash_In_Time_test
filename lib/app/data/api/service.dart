@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io';
 
 import 'package:get/get.dart';
 import 'package:http/http.dart' as http;
@@ -25,6 +26,14 @@ class Services extends GetxController {
 
   fetchAllData() async {
     try {
+      final result = await InternetAddress.lookup('example.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {}
+    } on SocketException catch (_) {
+      Get.snackbar('Oops',
+          'There is no internet connection. Please connect to internet and try again.');
+      return;
+    }
+    try {
       final response = await http.get(Uri.parse(
           'https://run.mocky.io/v3/fc713ee3-4135-45fb-8e5c-330932244311'));
       if (response.statusCode == 200) {
@@ -40,12 +49,21 @@ class Services extends GetxController {
 
   getAllDrinksAndUser() async {
     try {
+      final result = await InternetAddress.lookup('example.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {}
+    } on SocketException catch (_) {
+      drinksModel = null;
+      userModel = [];
+      Get.snackbar('Oops',
+          'There is no internet connection. Please connect to internet and try again.');
+      return;
+    }
+    try {
       final response = await http.get(Uri.parse(
           'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=marGarita'));
 
       if (response.statusCode == 200) {
         drinksModel = drinksModelFromJson(response.body);
-        _drinkHiveModelController.drinks.clear();
         for (var element in drinksModel!.drinks) {
           final data = HiveDrinkModel(
               drinkName: element.strDrink.toString(),
@@ -73,7 +91,7 @@ class Services extends GetxController {
             regDate: userModel.first.registered.toString(),
             nation: userModel.first.nat.toString());
         await _userHiveController.addUserToHive(data);
-        print('aaa ${userModel.first.name!.first!}');
+
         update();
       }
     } catch (e) {

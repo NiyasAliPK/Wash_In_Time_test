@@ -36,9 +36,9 @@ class HomeController extends GetxController {
     }
   }
 
-  Future<MedicineModel> getdataFromApi() async {
+  Future<dynamic> getdataFromApi() async {
     data = await _services.fetchAllData();
     update();
-    return data!;
+    return data ?? '';
   }
 }
