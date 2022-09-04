@@ -1,16 +1,18 @@
 # wash_in_time
 
-A new Flutter project.
+This app was given to me as test by a company named wash in time
 
-## Getting Started
+The objective was to integrate multiple apis in a single view and handle the internet connection states.
 
-This project is a starting point for a Flutter application.
+There will be some unhandled exeptions in the app as the time provided for doing this task was only 24 hours.
 
-A few resources to get you started if this is your first Flutter project:
+Features used : 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Getx for state management and navigation
+Http for handling http requests
+Firebase for login with email
+Hive for local database
+Lottie for animations
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
